@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head><title>Chat</title><link rel="stylesheet" href="css/style.css"></head>
+<body><div class="card">
+  <h2>Chat with <span id="toUser"></span></h2>
+  <div id="messages"></div>
+  <input id="msg" placeholder="Type message..." />
+  <button onclick="send()">Send</button>
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/client.js"></script>
+</body>
+</html>
+

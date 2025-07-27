@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head><title>Search</title><link rel="stylesheet" href="css/style.css"></head>
+<body><div class="card">
+  <h2>Search User</h2>
+  <input id="query" placeholder="Search username..." oninput="searchUser()" />
+  <ul id="results"></ul>
+</div>
+<script>
+  function searchUser() {
+    const q = document.getElementById('query').value;
+    fetch('/api/search?q=' + encodeURIComponent(q))
+      .then(res => res.json())
+      .then(users => {
+        const ul = document.getElementById('results');
+        ul.innerHTML = '';
+        users.forEach(u => {
+          const li = document.createElement('li');
+          li.innerHTML = <a href="chat.html?to=${u}">${u}</a>;
+          ul.appendChild(li);
+        });
+      });
+  }
+</script>
+</body>
+</html>
+
